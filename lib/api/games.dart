@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:battleships/helpers/constants.dart';
 
 class GameAPI {
-  Future<dynamic> getData(String accessToken, int? id) async {
+  Future<dynamic> getData(String accessToken, String? id) async {
     final url = "$baseUrl/games${id != null ? "/$id" : ""}";
     final data = await http.get(
       Uri.parse(url),
@@ -15,7 +15,7 @@ class GameAPI {
       throw Exception(decodedData["error"]);
     }
 
-    return decodedData;
+    return decodedData["data"];
   }
 
   Future<dynamic> delete(String accessToken, String id) async {
@@ -30,7 +30,7 @@ class GameAPI {
       throw Exception(decodedData["error"]);
     }
 
-    return decodedData;
+    return decodedData["data"];
   }
 
   Future<dynamic> create(
@@ -46,10 +46,10 @@ class GameAPI {
       throw Exception(decodedData["error"]);
     }
 
-    return decodedData;
+    return decodedData["data"];
   }
 
-  Future<dynamic> playTurn(String accessToken, int gameId, String shot) async {
+  Future<dynamic> playTurn(String accessToken, String gameId, String shot) async {
     final url = "$baseUrl/games/$gameId";
     final body = {"shot": shot};
     final data = await http.put(Uri.parse(url),
@@ -61,6 +61,6 @@ class GameAPI {
       throw Exception(decodedData["error"]);
     }
 
-    return decodedData;
+    return decodedData["data"];
   }
 }

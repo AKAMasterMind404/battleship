@@ -156,7 +156,7 @@ class _NewGamePlayScreenState extends State<NewGamePlayScreen> {
     });
     final accessToken =
         await SharedPreferencesService.getStringValueForKey(ACCESS_TOKEN);
-    List<String> shipList = _getSelectedTiles() as List<String>;
+    List<String> shipList = _getSelectedTiles();
     try {
       dynamic data;
       if(widget.gameType != null) {
@@ -167,7 +167,7 @@ class _NewGamePlayScreenState extends State<NewGamePlayScreen> {
       await GameListProvider.loadGameListForUser(context);
       UtilService.showSnackBar(context, "Successfully created ships!");
       Navigator.of(context).pop();
-      UtilService.pushRoute(context, LiveGamePlayScreen(gameId: data["id"]));
+      UtilService.pushRoute(context, LiveGamePlayScreen(gameId: data["_id"]));
     } on Exception catch (e) {
       UtilService.showSnackBar(context, e.toString());
     }

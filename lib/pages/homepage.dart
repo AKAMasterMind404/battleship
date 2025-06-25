@@ -1,4 +1,3 @@
-import 'package:battleships/api/games.dart';
 import 'package:battleships/helpers/constants.dart';
 import 'package:battleships/helpers/sharedPreferences.dart';
 import 'package:battleships/helpers/utils.dart';
@@ -70,7 +69,7 @@ class _HomePageState extends State<HomePage> {
               itemCount: gameList.length,
               itemBuilder: (context, index) {
                 GameModel gameModel = gameList[index];
-                return GameStatusWidget(context, gameModel);
+                return GameStatusWidget(context, gameModel, index);
               }),
     );
   }

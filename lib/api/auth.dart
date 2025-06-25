@@ -5,7 +5,7 @@ import 'package:battleships/helpers/constants.dart';
 
 class AuthAPI {
   Future<dynamic> register(String username, String password) async {
-    const url = "$baseUrl/register";
+    const url = "$baseUrl/auth/register";
     final body = jsonEncode({"username": username, "password": password});
 
     final data = await http.post(
@@ -19,11 +19,11 @@ class AuthAPI {
       throw Exception(decodedData["error"]);
     }
 
-    return decodedData;
+    return decodedData["data"];
   }
 
   Future<dynamic> login(String username, String password) async {
-    const url = "$baseUrl/login";
+    const url = "$baseUrl/auth/login";
     final body = jsonEncode({"username": username, "password": password});
 
     final data = await http.post(
@@ -37,6 +37,6 @@ class AuthAPI {
       throw Exception(decodedData["error"]);
     }
 
-    return decodedData;
+    return decodedData["data"];
   }
 }

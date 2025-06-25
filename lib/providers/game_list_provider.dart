@@ -49,7 +49,7 @@ class GameListProvider extends ChangeNotifier {
     provider.updateIsLoadingStatus(false);
     final GameAPI gameAPI = GameAPI();
     final data = await gameAPI.getData(accessToken, null);
-    final gameList = data["games"] as List<dynamic>;
+    final gameList = data as List<dynamic>;
     provider.setGameList(gameList);
     provider.updateIsLoadingStatus(true);
   }

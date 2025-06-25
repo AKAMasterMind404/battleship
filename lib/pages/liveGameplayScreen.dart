@@ -8,7 +8,7 @@ import '../helpers/sharedPreferences.dart';
 
 class LiveGamePlayScreen extends StatefulWidget {
   static String RouteName = "GamePlayScreen";
-  int gameId;
+  String gameId;
 
   LiveGamePlayScreen({required this.gameId});
 
@@ -182,7 +182,7 @@ class _LiveGamePlayScreenState extends State<LiveGamePlayScreen> {
         await SharedPreferencesService.getStringValueForKey(ACCESS_TOKEN);
     try {
       final data =
-          await GameAPI().playTurn(accessToken, gameDataMap['id'], placedAt!);
+          await GameAPI().playTurn(accessToken, gameDataMap["_id"], placedAt!);
       // { message:"", sunk_ship: true, won: true }
       await _handlePostSubmit();
       if (data["won"] == true) {

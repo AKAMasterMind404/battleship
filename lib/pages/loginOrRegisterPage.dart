@@ -156,7 +156,7 @@ class _LoginOrRegisterPageState extends State<LoginOrRegisterPage> {
   }
 
   _saveUserInfoToPrefs(dynamic data, String username) async {
-    final accessToken = data["access_token"];
+    final accessToken = data;
     await SharedPreferencesService.addStringValueForKey(ACCESS_TOKEN, accessToken);
     await SharedPreferencesService.addStringValueForKey(USER_NAME, username);
   }

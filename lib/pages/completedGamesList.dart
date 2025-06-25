@@ -42,7 +42,7 @@ class _CompletedGamesScreenState extends State<CompletedGamesScreen> {
               itemCount: gameModelList.length,
               itemBuilder: (BuildContext context, int index) {
                 GameModel gameModel = gameModelList[index];
-                return GameStatusWidget(context, gameModel);
+                return GameStatusWidget(context, gameModel, index);
               }),
     );
   }

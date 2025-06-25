@@ -11,11 +11,11 @@ class PieChartWidget extends StatelessWidget {
       return GridView.count(
         crossAxisCount: segments.length,
         shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         children: segments.map((segment) => Image.asset(segment, scale: 0.33)).toList(),
       );
     }
 
-    return SizedBox();
+    return const SizedBox();
   }
 }
