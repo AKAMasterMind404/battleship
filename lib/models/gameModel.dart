@@ -8,6 +8,7 @@ class GameModel {
   final List? shots;
   final List? sunk;
   final List? wrecks;
+  final bool? playerTurn;
 
   GameModel({
     required this.id,
@@ -19,6 +20,7 @@ class GameModel {
     this.shots,
     this.sunk,
     this.wrecks,
+    this.playerTurn,
   });
 
   static GameModel fromJson(Map<String, Object?> json) => GameModel(
@@ -36,6 +38,7 @@ class GameModel {
         json[GameFields.wrecks] != null
             ? json[GameFields.wrecks] as List
             : null,
+    playerTurn: json[GameFields.playerTurn] as bool,
   );
 
   static List<GameModel> getListFromJSON(List jsonList) {
@@ -56,6 +59,7 @@ class GameFields {
     shots,
     sunk,
     wrecks,
+    playerTurn,
   ];
 
   static const String id = '_id';
@@ -67,4 +71,5 @@ class GameFields {
   static const String shots = 'shots';
   static const String sunk = 'sunk';
   static const String wrecks = 'wrecks';
+  static const String playerTurn = 'playerTurn';
 }
