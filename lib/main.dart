@@ -1,10 +1,7 @@
 import 'dart:async';
-import 'package:battleships/pages/OneShipAI.dart';
-import 'package:battleships/pages/PerfectAI.dart';
-import 'package:battleships/pages/RandomAI.dart';
-import 'package:battleships/pages/completedGamesList.dart';
-import 'package:battleships/pages/newGameplayScreen.dart';
-import 'package:battleships/providers/game_list_provider.dart';
+import 'pages/completedGamesList.dart';
+import 'pages/newGameplayScreen.dart';
+import 'providers/game_list_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'pages/homepage.dart';
@@ -63,9 +60,6 @@ Future<void> main() async {
           HomePage.RouteName: (ctx) => HomePage(),
           NewGamePlayScreen.RouteName: (ctx) => NewGamePlayScreen(),
           CompletedGamesScreen.RouteName: (ctx) => CompletedGamesScreen(),
-          OneShipAI.RouteName: (ctx) => const OneShipAI(),
-          PerfectAI.RouteName: (ctx) => const PerfectAI(),
-          RandomAI.RouteName: (ctx) => const RandomAI(),
         },
       ),
     ),

@@ -28,7 +28,7 @@ Widget GameStatusWidget(
           : result;
   final String currentMessageString =
       currentGame.status == 0
-          ? currentGame.playerTurn ?? false ? "Your Turn to Play" : "Waiting for Opponent"
+          ? currentGame.player2 == null ? "Matchmaking" : currentGame.playerTurn ?? false ? "Your Turn to Play" : "Waiting for Opponent"
           : "${currentGame.player1} vs ${currentGame.player2}";
 
   return Dismissible(
