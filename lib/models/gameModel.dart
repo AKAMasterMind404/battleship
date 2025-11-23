@@ -1,7 +1,7 @@
 class GameModel {
-  final int id;
+  final String id;
   final int status;
-  final int turn;
+  final bool playerTurn;
   final int position;
   final String player1;
   final String player2;
@@ -13,7 +13,7 @@ class GameModel {
   GameModel({
     required this.id,
     required this.status,
-    required this.turn,
+    required this.playerTurn,
     required this.position,
     required this.player1,
     required this.player2,
@@ -24,25 +24,32 @@ class GameModel {
   });
 
   static GameModel fromJson(Map<String, Object?> json) => GameModel(
-        id: json[GameFields.id] as int,
-        status: json[GameFields.status] as int,
-        turn: json[GameFields.turn] as int,
-        position: json[GameFields.position] as int,
-        player1: json[GameFields.player1] as String,
-        player2: (json[GameFields.player2] ?? "") as String,
-        ships: json[GameFields.ships] != null
-            ? json[GameFields.ships] as List<String>
-            : null,
-        shots: json[GameFields.shots] != null
-            ? json[GameFields.shots] as List<String>
-            : null,
-        sunk: json[GameFields.sunk] != null
-            ? json[GameFields.sunk] as List<String>
-            : null,
-        wrecks: json[GameFields.wrecks] != null
-            ? json[GameFields.wrecks] as List<String>
-            : null,
-      );
+    id: json[GameFields.id] as String,
+    status: json[GameFields.status] as int,
+    playerTurn: json[GameFields.playerTurn] as bool,
+    position: json[GameFields.position] as int,
+    player1: json[GameFields.player1] as String,
+    player2: (json[GameFields.player2] ?? "") as String,
+    ships:
+        json[GameFields.ships] == null
+            ? null
+            : List<String>.from(json[GameFields.ships] as List),
+
+    shots:
+        json[GameFields.shots] == null
+            ? null
+            : List<String>.from(json[GameFields.shots] as List),
+
+    sunk:
+        json[GameFields.sunk] == null
+            ? null
+            : List<String>.from(json[GameFields.sunk] as List),
+
+    wrecks:
+        json[GameFields.wrecks] == null
+            ? null
+            : List<String>.from(json[GameFields.wrecks] as List),
+  );
 
   static List<GameModel> getListFromJSON(List jsonList) {
     List<GameModel> gameList =
@@ -55,7 +62,7 @@ class GameFields {
   static final List<String> values = [
     id,
     status,
-    turn,
+    playerTurn,
     position,
     player1,
     player2,
@@ -65,9 +72,9 @@ class GameFields {
     wrecks,
   ];
 
-  static const String id = 'id';
+  static const String id = '_id';
   static const String status = 'status';
-  static const String turn = 'turn';
+  static const String playerTurn = 'playerTurn';
   static const String position = 'position';
   static const String player1 = 'player1';
   static const String player2 = 'player2';

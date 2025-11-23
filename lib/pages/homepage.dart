@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
               itemCount: gameList.length,
               itemBuilder: (context, index) {
                 GameModel gameModel = gameList[index];
-                return GameStatusWidget(context, gameModel);
+                return GameStatusWidget(context, index + 1, gameModel);
               }),
     );
   }

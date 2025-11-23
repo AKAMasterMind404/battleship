@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:battleships/helpers/constants.dart';
 
 class GameAPI {
-  Future<dynamic> getData(String accessToken, int? id) async {
+  Future<dynamic> getData(String accessToken, String? id) async {
     final url = "$baseUrl/games${id != null ? "/$id" : ""}";
     final data = await http.get(
       Uri.parse(url),

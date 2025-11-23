@@ -8,7 +8,7 @@ import '../helpers/sharedPreferences.dart';
 
 class LiveGamePlayScreen extends StatefulWidget {
   static String RouteName = "GamePlayScreen";
-  int gameId;
+  String gameId;
 
   LiveGamePlayScreen({required this.gameId});
 
